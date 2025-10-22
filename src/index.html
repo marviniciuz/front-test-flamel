@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Front - PDF Tools</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Custom -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body class="grey lighten-4">
+
+  <!-- LOGIN  -->
+  <div id="tela-login" class="section center-align">
+    <h4>Login</h4>
+    <div class="container">
+      <div class="input-field">
+        <input id="usuario" type="text">
+        <label for="usuario">Usuário</label>
+      </div>
+      <div class="input-field">
+        <input id="senha" type="password">
+        <label for="senha">Senha</label>
+      </div>
+      <button id="btn-login" class="btn waves-effect waves-light">Entrar</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD  -->
+  <div id="tela-dashboard" class="section center-align hide">
+    <h4>Dashboard</h4>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="card hoverable" onclick="irPara('tela-transformar')">
+            <div class="card-content">
+              <i class="material-icons large">picture_as_pdf</i>
+              <p>Melhorar PDF</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card hoverable" onclick="irPara('tela-transformar')">
+            <div class="card-content">
+              <i class="material-icons large">hearing</i>
+              <p>PDF para Áudio</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="card hoverable" onclick="irPara('tela-transformar')">
+            <div class="card-content">
+              <i class="material-icons large">description</i>
+              <p>Extrair Texto</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn red lighten-1" onclick="irPara('tela-login')">Sair</button>
+    </div>
+  </div>
+
+  <!--  TELA ARRASTAR ARQUIVO -->
+  <div id="tela-transformar" class="section center-align hide">
+    <h4>Arraste o arquivo PDF</h4>
+    <div class="container">
+      <div id="dropzone" class="card-panel grey lighten-3" style="padding: 60px; border: 2px dashed #9e9e9e;">
+        <i class="material-icons large">cloud_upload</i>
+        <p>Arraste o arquivo aqui ou clique para enviar</p>
+      </div>
+      <br>
+      <button class="btn grey" onclick="voltarParaDashboard()">Voltar</button>
+    </div>
+  </div>
+
+  <div id="tela-carregando" class="section center-align hide">
+    <h4>Processando...</h4>
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left"><div class="circle"></div></div>
+        <div class="gap-patch"><div class="circle"></div></div>
+        <div class="circle-clipper right"><div class="circle"></div></div>
+      </div>
+    </div>
+    <br><br>
+    <button class="btn grey" onclick="voltarParaDashboard()">Cancelar</button>
+  </div>
+
+  <div id="tela-download" class="section center-align hide">
+    <h4>Arquivo pronto!</h4>
+    <i class="material-icons large green-text">check_circle</i>
+    <p>Seu PDF foi processado com sucesso.</p>
+    <br>
+    <a href="#" class="btn green">Baixar Arquivo</a>
+    <br><br>
+    <button class="btn grey" onclick="voltarParaDashboard()">Voltar</button>
+  </div>
+
+</body>
+</html>
